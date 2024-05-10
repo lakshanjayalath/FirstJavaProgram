@@ -1,11 +1,12 @@
 //package quiz_package;
-import java.sql.SQLOutput;
 import java.util.Scanner;
 public class QuizAppVersion2 {
     String username;
     String password;
     String userName;
     String passWord;
+
+    Scanner input;
 
     String s1 = "1";
     String s2 = "2";
@@ -19,8 +20,11 @@ public class QuizAppVersion2 {
     boolean contain3;
     boolean contain4;
 
+    public void scanner(){
+        input = new Scanner(System.in);
+    }
+
     public void signup(){
-        Scanner input = new Scanner(System.in);
         System.out.println("Welcome To Brain Train Quiz App");
         System.out.println(" ");
         System.out.println("Sign Up");
@@ -56,7 +60,6 @@ public class QuizAppVersion2 {
     }
 
     public void quiz(){
-        Scanner input = new Scanner(System.in);
         if(passWord.equals(password)&&userName.equals(username)) {
             System.out.println(" ");
             System.out.println("Hi " + username + ". Start Quiz app");
@@ -217,6 +220,7 @@ public class QuizAppVersion2 {
                         System.out.println("Sorry. You didn't pass the test. Try again later.");
                     }
                     break;
+
                 } else if (subjectNo.equals(s3)) {
                     System.out.println("Start Quiz");
 
@@ -284,6 +288,7 @@ public class QuizAppVersion2 {
                         System.out.println("Sorry. You didn't pass the test. Try again later.");
                     }
                     break;
+
                 } else if(subjectNo.equals(s4)){
                     System.out.println("Start Quiz");
 
@@ -348,7 +353,7 @@ public class QuizAppVersion2 {
                     } else {
                         System.out.println("Sorry. You didn't pass the test. Try again later.");
                     }
-                    break;
+
                 }else {
                     System.out.println("Please enter the correct subject number.");
                 }
@@ -359,10 +364,17 @@ public class QuizAppVersion2 {
             System.out.println("Please Enter correct inputs and try again.");
         }
     }
+
+    public void scannerClose(){
+        input.close();
+    }
     public static void main(String[] args){
         QuizAppVersion2 myapp = new QuizAppVersion2();
+        myapp.scanner();
         myapp.signup();
         myapp.quiz();
+        myapp.scannerClose();
     }
+
 }
 
